@@ -45,7 +45,7 @@ text_splitter = CharacterTextSplitter(
 )
 chunks = text_splitter.split_text(chtext)
 ```
-chunk_size in GraphRAG default is 1200.
+default chunk_size in GraphRAG is 1200.
 
 ### Graph extraction
 - <b>Function:</b> analysis each text-unit and extract the graphics primitives: entities, relations, and claims.
@@ -57,7 +57,6 @@ chunk_size in GraphRAG default is 1200.
 ### Graph Augmentation(Building Community)
 - <b>Community detection:</b> using the Hierarchical Leiden Algorithm to generate hierarchical relationships of entity communities, this approach will recursively apply community clustering to our graph until the community size threshold is reached. This will enable us to understand the community structure of the graph and provide a method for navigating and summarizing the graph at different granularity levels.
 - <b>Graph embedding:</b> using the Node2vec algorithm to generate vector representations of graphs. This will enable us to understand the implicit structure of the graph and provide additional vector space for searching related concepts during the query phase.
-
 ![image](https://github.com/smart-James/RAG/blob/main/image/graph_augmentation.png)
 
 - <b>Graph Tables Emission:</b> the final Entities and Relations tables are emitted after their text fileds are text-embedded. To understanding the relationship between constructed communities and entities and their relationships.
