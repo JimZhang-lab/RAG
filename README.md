@@ -2,7 +2,7 @@
 
 This project is for learning RAG on my own 
 
-## there are serveral methods to build a RAG for yourself as follows:
+## There are serveral methods to build a RAG for yourself as follows:
 - 1. using third-parts api in RAG_API.ipynb
 - 2. using local llm and embedding model in RAG_LOCAL.ipynb
 - 3. using Microsoft's GraphRAG in RAG_GRAPH.ipynb
@@ -80,7 +80,7 @@ Search relative entites first.
 Search community first. not entity search.
 ![image](https://github.com/smart-James/RAG/blob/main/image/global_query.png)
 
-## chatui using streamlit
+## Chatui using streamlit
 ```
 streamlit run streamlit_langchian.py
 ```
