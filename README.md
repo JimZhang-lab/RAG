@@ -1,8 +1,8 @@
-## RAG
+# RAG
 
 This project is for learning RAG on my own 
 
-### there are serveral methods to build a RAG for yourself
+## there are serveral methods to build a RAG for yourself
 - 1. using third-parts api in RAG_API.ipynb
 - 2. using local llm and embedding model in RAG_local.ipynb
 - 3. using Microsoft's GraphRAG in RAG_GRAPH.ipynb
@@ -10,7 +10,7 @@ This project is for learning RAG on my own
 <b>warning: the GraphRAG will cost a lot of tokens, please use it carefully.</b>
 
 
-#### GraphRAG introduce
+### GraphRAG introduce
 The tradition RAG(Retrieval Augmented Generation): using retrieval augment generation technique to retrieval relative imformation from outside knowledge sources, and it will enable llms to reply some questions that involve in private files or did not appear in the training files.
 GraphRAG is a structured, hierarchical approach to Retrieval Augmented Generation (RAG), as opposed to naive semantic-search approaches using plain text snippets. The GraphRAG process involves extracting a knowledge graph out of raw text, building a community hierarchy, generating summaries for these communities, and then leveraging these structures when perform RAG-based tasks.
 1. Document: The input document in your system. These files are in csv or txt format.
@@ -22,7 +22,7 @@ GraphRAG is a structured, hierarchical approach to Retrieval Augmented Generatio
 7. Community Report: community can be declared as a sub-graph of the knowledge graph, which is a collection of entities and their relationships. Once entities are generated, we perform hierarchical community detection on them and generate reports for each community in this hierarchy.
 8. Node: Layout information of the presented graphical view containing the embedded and aggregated entities and documents. 
 
-#### How does document transform to TextUnit?
+### How does document transform to TextUnit?
 The TextUnit is a chunk of text that is analyzed by the RAG system. The size, overlap of these chunks and whether they adhere to any data boundaries can be set by the user. A common use case is to set CHUNK_BY_COLUMNS as id, so that there is a one-to-many relationship between the document and the TextUnit instead of a many-to-many relationship.
 ![image](https://github.com/smart-James/RAG/blob/main/image/textunits.png)
 ![image](https://github.com/smart-James/RAG/blob/main/image/chunk_size.png)
@@ -47,37 +47,37 @@ chunks = text_splitter.split_text(chtext)
 ```
 chunk_size in GraphRAG default is 1200.
 
-#### Graph extraction
+### Graph extraction
 - <b>Function:</b> analysis each text-unit and extract the graphics primitives: entities, relations, and claims.
 - <b>Entity and relation extraction:</b> using llm extract the entities and relations from the original text, which include entity list with name, type, and description and relation list with source, target, and description.
 - <b>Entity and relation abstract:</b> provide a brief abstract description for each entity by the llm.
 - <b>Claim extraction and Emission:</b> The claim represents an affirmative factual assertion with an assessment of status and time constraints, referred to as covariates throughout.
 ![image](https://github.com/smart-James/RAG/blob/main/image/graph_extraction.png)
 
-#### Graph Augmentation(Building Community)
+### Graph Augmentation(Building Community)
 - <b>Community detection:</b> using the Hierarchical Leiden Algorithm to generate hierarchical relationships of entity communities, this approach will recursively apply community clustering to our graph until the community size threshold is reached. This will enable us to understand the community structure of the graph and provide a method for navigating and summarizing the graph at different granularity levels.
 - <b>Graph embedding:</b> using the Node2vec algorithm to generate vector representations of graphs. This will enable us to understand the implicit structure of the graph and provide additional vector space for searching related concepts during the query phase.
 ![image](https://github.com/smart-James/RAG/blob/main/image/graph_augmentation.png)
 - <b>Graph Tables Emission:</b> the final Entities and Relations tables are emitted after their text fileds are text-embedded. To understanding the relationship between constructed communities and entities and their relationships.
 
-#### Community Report
+### Community Report
 - <b>Function:</b> based on community data and generating reports for each community, this allows us to gain a high-level understanding of the charts from multiple granularity points. For example, if Community A is the top-tier community, we will receive a report about the entire chart. If the community is of a lower level, we will receive a report about the local clusters.
 - <b>Generate community report:</b> using llm generate the report for each community, and citing key entities, relationships and claims in the community sub-structure.
 - <b>Summarize community report:</b> every community report is summarized by the llm, which provides a brief summary for shorthand.
 - <b>Community embedding:</b> generate a vector representation of our community by creating text embeddings for community reports, summaries of community reports, and titles of community reports.
 ![image](https://github.com/smart-James/RAG/blob/main/image/community_report.png)
 
-#### Document Processing
+### Document Processing
 - <b>Link to TextUnit:</b> link each document to its corresponding TextUnit which built in the first step.
 - <b>Document embedding:</b> average embedding of the document splits will be used to generate document vectors representation, and it will make us understand the implicit relationship between documents.
 ![image](https://github.com/smart-James/RAG/blob/main/image/document_processing.png)
 
-#### Local Query
+### Local Query
 Search relative entites first.
-#### Global Query
+### Global Query
 Search community first. not entity search.
 
-### chatui using streamlit
+## chatui using streamlit
 ```
 streamlit run streamlit_langchian.py
 ```
