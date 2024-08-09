@@ -74,8 +74,10 @@ chunk_size in GraphRAG default is 1200.
 
 ### Local Query
 Search relative entites first.
+![image](https://github.com/smart-James/RAG/blob/main/image/local_query.png)
 ### Global Query
 Search community first. not entity search.
+![image](https://github.com/smart-James/RAG/blob/main/image/global_query.png)
 
 ## chatui using streamlit
 ```
