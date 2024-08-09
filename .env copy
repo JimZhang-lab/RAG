@@ -1,0 +1,27 @@
+OPENAI_API_URL = ""
+OPENAI_API_KEY = ""
+OPENAI_MODEL = ""
+
+MOONSHOT_API_URL = "https://api.moonshot.cn/v1"
+MOONSHOT_API_KEY = "sk-..."
+MOONSHOT_MODEL = "moonshot-v1-8k"
+
+ZHIPUAI_BASE_URL = "https://open.bigmodel.cn/api/paas/v4/"
+ZHIPUAI_API_KEY = "..."
+ZHIPUAI_MODEL_4 = "glm-4-0520"
+ZHIPUAI_MODEL_4v = "glm-4v"
+ZHIPUAI_MODEL_4airx = "glm-4-airx"
+ZHIPUAI_MODEL_ALLTOOLS = "glm-alltools"
+ZHIPUAI_MODEL_VIDEO = "cogvideox"
+ZHIPUAI_MODEL_IMAGE = "cogview-3"
+ZHIPUAI_MODEL_CODE = "codegeex-4"
+ZHIPUAI_MODEL_EMBEDDING = "embedding-3"
+
+
+QIANFAN_BASE_URL = "https://api.qianfan.com/v1"
+QIANFAN_API_KEY = "..."
+QIANFAN_SECREAT_KEY = "..."
+
+DEEPSPEEK_API_KEY = "sk-..."
+DEEPSPEEK_BASE_URL = "https://api.deepseek.com"
+DEEPSPEEK_MODEL = "deepseek-chat"
