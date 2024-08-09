@@ -52,7 +52,8 @@ default chunk_size in GraphRAG is 1200.
 - <b>Entity and relation extraction:</b> using llm extract the entities and relations from the original text, which include entity list with name, type, and description and relation list with source, target, and description.
 - <b>Entity and relation abstract:</b> provide a brief abstract description for each entity by the llm.
 - <b>Claim extraction and Emission:</b> The claim represents an affirmative factual assertion with an assessment of status and time constraints, referred to as covariates throughout.
-![image](https://github.com/smart-James/RAG/blob/main/image/graph_extraction.png)
+
+    ![image](https://github.com/smart-James/RAG/blob/main/image/graph_extraction.png)
 
 ### Graph Augmentation(Building Community)
 - <b>Community detection:</b> using the Hierarchical Leiden Algorithm to generate hierarchical relationships of entity communities, this approach will recursively apply community clustering to our graph until the community size threshold is reached. This will enable us to understand the community structure of the graph and provide a method for navigating and summarizing the graph at different granularity levels.
